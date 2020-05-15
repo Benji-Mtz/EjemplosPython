@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <h2>Hola {{username}} </h2>
+  <p>Estamos en el curso de {{ curso }}</p>
+
+  {% if is_premium %}
+  <p>El curso es Premium</p>
+  {% else %}
+  <p>El curso es gratis para todos</p>
+  {% endif %}
+
+  {%if courses%}
+    <p>Listado de cursos:</p>
+    <ul>
+      {% for course in courses %}
+        <li> {{ course }} </li>
+      {% endfor %}
+    </ul>
+  {%endif%}
+
+  <img src="{{ url_for('static', filename='imagenes/unsplash0.jpg') }}" alt="">
+
+{% endblock %}
